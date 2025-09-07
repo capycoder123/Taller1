@@ -8,6 +8,7 @@
 #include <iostream>
 using namespace std;
 
+// Estructura que representa un alumno
 struct Alumno {
     int id;
     string nombre;
@@ -16,11 +17,13 @@ struct Alumno {
     string fechaIngreso;
 };
 
+// Nodo de lista enlazada para alumno
 struct NodoAlumno {
     Alumno alumno;
     NodoAlumno* siguiente;
 };
 
+// Lista enlazada de alumnos
 class ListaAlumnos {
 private:
     NodoAlumno* cabeza;

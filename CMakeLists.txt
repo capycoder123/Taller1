@@ -7,4 +7,6 @@ add_executable(Taller1 main.cpp
         Alumno.h
         Alumno.cpp
         Curso.h
-        Curso.cpp)
+        Curso.cpp
+        Inscripcion.h
+        Inscripcion.cpp)

@@ -84,6 +84,7 @@ bool ListaCursos::eliminarPorNombre(const string &nombre) {
     return false;
 }
 
+// Muestra todos los cursos
 void ListaCursos::mostrarTodo() {
     NodoCurso* actual = cabeza;
     cout << "Listado de todos los curos " << endl;

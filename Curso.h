@@ -8,6 +8,7 @@
 #include <string>
 using namespace std;
 
+// Estructura que representa curso
 struct Curso {
     int codigo;
     string nombre;
@@ -17,11 +18,13 @@ struct Curso {
     int inscritos;
 };
 
+// Nodo de lista enlazada para curso
 struct NodoCurso {
     Curso curso;
     NodoCurso* siguiente;
 };
 
+// Lista enlazada de cursos
 class ListaCursos {
 private:
     NodoCurso* cabeza;
