@@ -46,6 +46,27 @@ NodoAlumno *ListaAlumnos::buscarPorNombre(const string &nombre) {
     return nullptr;
 }
 
+// lista todas las coincidencias por nombre
+void ListaAlumnos::listarPorNombre(const string &nombre) {
+    NodoAlumno* actual = head;
+    bool found = false;
+    cout << "Resultados de búsqueda por nombre \"" << nombre << "\":\n";
+    while(actual) {
+        if(actual->data.nombre == nombre) {
+            cout << "ID: " << actual->data.id
+                 << ", Nombre: " << actual->data.nombre << " " << actual->data.apellido
+                 << ", Carrera: " << actual->data.carrera
+                 << ", Ingreso: " << actual->data.fechaIngreso << endl;
+            found = true;
+        }
+        actual = actual->sig;
+    }
+    if(!found) {
+        cout << "No se encontraron alumnos con ese nombre.\n";
+    }
+}
+
+
 // Elimina un alumno por id
 bool ListaAlumnos::eliminarPorId(int id) {
     NodoAlumno* actual = cabeza;

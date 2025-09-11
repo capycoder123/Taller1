@@ -33,6 +33,7 @@ public:
     void agregarAlumno(const Alumno &alumno);
     NodoAlumno* buscarPorId(int id);
     NodoAlumno* buscarPorNombre(const string &nombre);
+    void listarPorNombre(const string &nombre);
     bool eliminarPorId(int id);
     bool eliminarPorNombre(const string &nombre);
     void listarPorCarrera(const string &carrera);
