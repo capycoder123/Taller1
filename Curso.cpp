@@ -46,6 +46,28 @@ NodoCurso* ListaCursos::buscarPorNombre(const string &nombre) {
     return nullptr;
 }
 
+// lista todas las coincidencias por nombre
+void ListaCursos::listarPorNombre(const string &nombre) {
+    NodoCurso* actual = cabeza;
+    bool encontrado = false;
+    cout << "Resultados de búsqueda por nombre \"" << nombre << "\":\n";
+    while (actual) {
+        if (actual->curso.nombre == nombre) {
+            cout << "Codigo: " << actual->curso.codigo
+                      << ", Nombre: " << actual->curso.nombre
+                      << ", Carrera: " << actual->curso.carrera
+                      << ", Profesor: " << actual->curso.profesor
+                      << ", Inscritos: " << actual->curso.inscritos
+                      << "/" << actual->curso.maxAlumnos << endl;
+            encontrado = true;
+        }
+        actual = actual->siguiente;
+    }
+    if (!encontrado) {
+        cout << "No se encontraron cursos con ese nombre" << endl;
+    }
+}
+
 // Elimina un curso por codigo
 bool ListaCursos::eliminarPorCodigo(int codigo) {
     NodoCurso* actual = cabeza;

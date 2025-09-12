@@ -34,6 +34,7 @@ public:
     void agregarCurso(const Curso &curso);
     NodoCurso* buscarPorCodigo(int codigo);
     NodoCurso* buscarPorNombre(const string &nombre);
+    void listarPorNombre(const string &nombre);
     bool eliminarPorCodigo(int codigo);
     bool eliminarPorNombre(const string &nombre);
     void mostrarTodo();
