@@ -86,6 +86,48 @@ bool ListaInscripciones::eliminarInscripcion(int idAlumno, int codigoCurso, List
     return false;
 }
 
+// elimina la inscripcion de un alumno por curso
+void ListaInscripciones::eliminarInscripcionesPorCurso(int codigoCurso, ListaCursos &listaC) {
+    Inscripcion* actual = cabeza;
+    Inscripcion* anterior = nullptr;
+    bool any = false;
+
+    NodoCurso* nodoCurso = listaC.buscarPorCodigo(codigoCurso);
+
+    while(actual) {
+        if(actual->codigoCurso == codigoCurso) {
+            Inscripcion* aEliminar = actual;
+            actual = actual->siguiente;
+
+            if(anterior) anterior->siguiente = aEliminar->siguiente;
+            else cabeza = aEliminar->siguiente;
+
+            Nota* n = aEliminar->notas;
+            while(n) {
+                Nota* auxN = n;
+                n = n->siguiente;
+                delete auxN;
+            }
+
+            delete aEliminar;
+            any = true;
+        } else {
+            anterior = actual;
+            actual = actual->siguiente;
+        }
+    }
+
+    if(nodoCurso) {
+        nodoCurso->curso.inscritos = 0;
+    }
+
+    if(any) {
+        cout << "Se eliminaron todas las inscripciones del curso " << codigoCurso << ".\n";
+    } else {
+        cout << "No se encontraron inscripciones para el curso " << codigoCurso << ".\n";
+    }
+}
+
 // Agrega nota a una inscripcion existente
 bool ListaInscripciones::agregarNota(int idAlumno, int codigoCurso, double nota) {
     if (nota < 1.0 || nota > 7.0) {

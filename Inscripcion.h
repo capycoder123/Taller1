@@ -32,6 +32,7 @@ public:
     ~ListaInscripciones();
     bool inscribir(int idAlumno, int codigoCurso, ListaAlumnos &listaA, ListaCursos &listaC);
     bool eliminarInscripcion(int idAlumno, int codigoCurso, ListaCursos &listaC);
+    void eliminarInscripcionesPorCurso(int codigoCurso, ListaCursos &listaC);
     bool agregarNota(int idAlumno, int codigoCurso, double nota);
     void mostrarCursosPorAlumno(int idAlumno, ListaCursos &listaC);
     void mostrarPromedio(int idAlumno, int codigoCurso);
